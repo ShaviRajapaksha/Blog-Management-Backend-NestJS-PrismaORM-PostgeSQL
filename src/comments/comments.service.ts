@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateCommentDto } from './dto/create-comment.dto';
 import { UpdateCommentDto } from './dto/update-comment.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
@@ -23,11 +23,22 @@ export class CommentsService {
     return `This action returns a #${id} comment`;
   }
 
-  update(id: number, updateCommentDto: UpdateCommentDto) {
-    return `This action updates a #${id} comment`;
+  async update(id: number, updateCommentDto: UpdateCommentDto) {
+    const comment = await this.prisma.post.findUnique({where: {id}});
+    if(!comment) throw new NotFoundException('Comment not found');
+
+    return this.prisma.comment.update({
+      where: {id},
+      data: updateCommentDto,
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} comment`;
+  async remove(id: number) {
+    const comment = await this.prisma.comment.findUnique({where: {id}});
+    if(!comment) throw new NotFoundException('Comment not found');
+
+    return this.prisma.comment.delete({
+      where: {id},
+    });
   }
 }
