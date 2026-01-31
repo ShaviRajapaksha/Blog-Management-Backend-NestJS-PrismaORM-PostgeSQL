@@ -12,7 +12,7 @@ export class PostsService {
       data: {
         title: createPostDto.title,
         content: createPostDto.content,
-        authId: createPostDto.authId,
+        authorId: createPostDto.authorId,
       }
     })
   }
