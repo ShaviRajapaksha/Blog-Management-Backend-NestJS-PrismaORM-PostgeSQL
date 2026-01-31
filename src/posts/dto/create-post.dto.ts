@@ -8,5 +8,5 @@ export class CreatePostDto {
     content: string;
 
     @IsInt()
-    authId: number;
+    authorId: number;
 }
