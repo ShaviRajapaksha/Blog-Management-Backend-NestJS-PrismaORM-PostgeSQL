@@ -1,57 +1,37 @@
-
 # Blog Management Backend
 
-A NestJS-based backend application for managing blog posts using Prisma ORM and PostgreSQL.
+A NestJS backend application for managing blog posts, users, and comments with PostgreSQL and Prisma ORM.
 
-## Features
+## Main Features
 
-- RESTful API for blog post management
-- User authentication and authorization
-- Database ORM with Prisma
-- PostgreSQL database integration
-- Type-safe development with TypeScript
+### Users
+- Create users
+- Read user details
+- Update user information
+- Delete users
 
-## Prerequisites
+### Posts
+- Create blog posts
+- Read posts
+- Update post content
+- Delete posts
 
-- Node.js (v18 or higher)
-- PostgreSQL
-- npm or yarn
+### Comments
+- Create comments on posts
+- Read comments
+- Update comments
+- Delete comments
 
-## Installation
+## Tech Stack
+- **Framework**: NestJS
+- **Database**: PostgreSQL
+- **ORM**: Prisma
+- **Runtime**: Node.js
 
-```bash
-npm install
-```
+## Getting Started
 
-## Setup
-
-1. Create a `.env` file in the root directory:
-```
-DATABASE_URL="postgresql://user:password@localhost:5432/blog_db"
-```
-
-2. Run database migrations:
-```bash
-npx prisma migrate dev
-```
-
-## Running the Application
-
-```bash
-# Development
-npm run start:dev
-
-# Production
-npm run build
-npm run start:prod
-```
-
-## API Endpoints
-
-- `GET /posts` - Retrieve all posts
-- `GET /posts/:id` - Get a specific post
-- `POST /posts` - Create a new post
-- `PATCH /posts/:id` - Update a post
-- `DELETE /posts/:id` - Delete a post
-
-
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Configure environment variables
+4. Run database migrations: `npx prisma migrate dev`
+5. Start the server: `run start:dev`
